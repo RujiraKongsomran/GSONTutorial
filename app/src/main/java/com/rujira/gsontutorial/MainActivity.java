@@ -17,12 +17,20 @@ public class MainActivity extends AppCompatActivity {
 
         Gson gson = new Gson();
 
-        Address address = new Address("Germany", "Berlin");
+//        Address address = new Address("Germany", "Berlin");
+//
+//        Employee employee = new Employee("John", 30, "john@gmail.com", address);
+//        String json = gson.toJson(employee);
 
-        Employee employee = new Employee("John", 30, "john@gmail.com", address);
-        String json = gson.toJson(employee);
-
-//        String json = "{\"age\":30,\"first_name\":\"John\",\"mail\":\"john@gmail.com\"}";
-//        Employee employee = gson.fromJson(json, Employee.class);
+        String json = "{\n" +
+                "  \"address\": {\n" +
+                "    \"city\": \"Berlin\",\n" +
+                "    \"country\": \"Germany\"\n" +
+                "  },\n" +
+                "  \"age\": 30,\n" +
+                "  \"first_name\": \"John\",\n" +
+                "  \"mail\": \"john@gmail.com\"\n" +
+                "}";
+        Employee employee = gson.fromJson(json, Employee.class);
     }
 }
